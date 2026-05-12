@@ -64,7 +64,6 @@ switch (option)
 
             Console.Write("Array ning toq elementlari: ");
             GetOddNumbers(numbers);
-
             break;
         }
     case "4":
@@ -84,6 +83,18 @@ switch (option)
             string oppositeString = GetOppositeString(userInput);
 
             Console.WriteLine($"Teskariga aylangan string: {oppositeString}");
+            break;
+        }
+    case "6":
+        {
+            Console.Write("Harflari statistikasini ko'rmoqchi bo'lgan qatoringizni kiriting: ");
+            string userInput = Console.ReadLine();
+
+            int vowelLetterCount = GetVowelLettersCount(userInput);
+            Console.WriteLine($"Unli harflar soni: {vowelLetterCount}");
+
+            int consonantLetterCount = GetConsonantLettersCount(userInput);
+            Console.WriteLine($"Undosh harflar soni: {consonantLetterCount}");
             break;
         }
     default:
@@ -157,4 +168,40 @@ static string GetOppositeString(string userInput)
         oppositeString += userInput[i];
 
     return oppositeString;
+}
+
+static int GetVowelLettersCount(string userInput)
+{
+    int vowelLetterCount = 0;
+
+    Console.Write("Kiritgan qatoringizdagi unli harflar: ");
+    foreach (char letter in userInput.ToLower())
+    {
+        if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u')
+        {
+            Console.Write(letter);
+            vowelLetterCount ++;
+        }
+    }
+    Console.WriteLine();
+
+    return vowelLetterCount;
+}
+
+static int GetConsonantLettersCount(string userInput)
+{
+    int consonantLetterCount = 0;
+
+    Console.Write("Kiritgan qatoringizdagi undosh harflar: ");
+    foreach (char letter in userInput.ToLower())
+    {
+        if (letter > 'a' && letter <= 'z' && letter != 'e' && letter != 'i' && letter != 'o' && letter != 'u')
+        {
+            Console.Write(letter);
+            consonantLetterCount ++;
+        }
+    }
+    Console.WriteLine();
+
+    return consonantLetterCount;
 }
