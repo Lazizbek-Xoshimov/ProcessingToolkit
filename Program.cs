@@ -32,6 +32,27 @@ switch (option)
             Console.WriteLine($"Ushbu sonlarning yig'indisi: {summa}");
             break;
         }
+    case "2":
+        {
+            int[] numbers = RandomArrayElements();
+            
+            ShowArrayElements(numbers);
+
+            int minElement = numbers[0];
+            int maxElement = numbers[0];
+
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] < minElement)
+                    minElement = numbers[i];
+
+                if (numbers[i] > maxElement)
+                    maxElement = numbers[i];
+            }
+
+            Console.WriteLine($"\nEng katta elementi: {maxElement}\nEng kichik elementi: {minElement}");
+            break;
+        }
 
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
