@@ -142,7 +142,7 @@ switch (option)
             StringBuilder stringBuilderObject = AddComma(names);
 
             Console.WriteLine($"Vergul qo'shilgan natijadagi qator: {stringBuilderObject}");
-            break;
+            break;  
         }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
