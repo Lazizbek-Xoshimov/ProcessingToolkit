@@ -53,7 +53,20 @@ switch (option)
             Console.WriteLine($"\nEng katta elementi: {maxElement}\nEng kichik elementi: {minElement}");
             break;
         }
+    case "3":
+        {
+            int[] numbers = RandomArrayElements();
 
+            ShowArrayElements(numbers);
+
+            Console.Write("\nArray ning juft elementlari: ");
+            EvenNumbers(numbers);
+
+            Console.Write("Array ning toq elementlari: ");
+            OddNumbers(numbers);
+
+            break;
+        }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
         break;
