@@ -77,6 +77,15 @@ switch (option)
             Console.WriteLine($"O'rtacha qiymati: {averageElement}");
             break;
         }
+    case "5":
+        {
+            Console.Write("Teskarisini ko'rmoqchi bo'lgan string qatorini kiriting: ");
+            string userInput = Console.ReadLine();
+            string oppositeString = GetOppositeString(userInput);
+
+            Console.WriteLine($"Teskariga aylangan string: {oppositeString}");
+            break;
+        }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
         break;
@@ -102,6 +111,7 @@ static void ShowArrayElements(int[] numbers)
     {
         Console.Write($"{numbers[i]} ");
     }
+    Console.WriteLine();
 }
 
 static int AddArrayElements(int[] numbers)
@@ -138,3 +148,13 @@ static void GetOddNumbers(int[] numbers)
 
 static double GetAverageValue(int[] numbers) =>
     Convert.ToDouble(AddArrayElements(numbers) / numbers.Length);
+
+static string GetOppositeString(string userInput)
+{
+    string oppositeString = String.Empty;
+
+    for (int i = userInput.Length - 1; i >= 0; i --)
+        oppositeString += userInput[i];
+
+    return oppositeString;
+}
