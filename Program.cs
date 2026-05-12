@@ -97,6 +97,17 @@ switch (option)
             Console.WriteLine($"Undosh harflar soni: {consonantLetterCount}");
             break;
         }
+    case "7":
+        {
+            Console.Write("Palindromlikka tekshiruvchi qatoringizni kiriting: ");
+            string userInput = Console.ReadLine();
+
+            if (IsPalindrome(userInput))
+                Console.WriteLine("Kiritgan qatoringiz palindrome.");
+            else
+                Console.WriteLine("Kiritgan qatoringiz palindrome emas.");
+            break;
+        }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
         break;
@@ -205,3 +216,6 @@ static int GetConsonantLettersCount(string userInput)
 
     return consonantLetterCount;
 }
+
+static bool IsPalindrome(string userInput) => 
+    userInput.Equals(GetOppositeString(userInput)) ? true : false;
