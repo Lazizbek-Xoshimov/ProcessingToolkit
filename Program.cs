@@ -60,11 +60,21 @@ switch (option)
             ShowArrayElements(numbers);
 
             Console.Write("\nArray ning juft elementlari: ");
-            EvenNumbers(numbers);
+            GetEvenNumbers(numbers);
 
             Console.Write("Array ning toq elementlari: ");
-            OddNumbers(numbers);
+            GetOddNumbers(numbers);
 
+            break;
+        }
+    case "4":
+        {
+            int[] numbers = RandomArrayElements();
+
+            ShowArrayElements(numbers);
+
+            double averageElement = GetAverageValue(numbers);
+            Console.WriteLine($"O'rtacha qiymati: {averageElement}");
             break;
         }
     default:
@@ -106,7 +116,7 @@ static int AddArrayElements(int[] numbers)
     return summa;
 }
 
-static void EvenNumbers(int[] numbers)
+static void GetEvenNumbers(int[] numbers)
 {
     for (int i = 0; i < numbers.Length; i++)
     {
@@ -116,7 +126,7 @@ static void EvenNumbers(int[] numbers)
     Console.WriteLine();
 }
 
-static void OddNumbers(int[] numbers)
+static void GetOddNumbers(int[] numbers)
 {
     for (int i = 0; i < numbers.Length; i++)
     {
@@ -125,3 +135,6 @@ static void OddNumbers(int[] numbers)
     }
     Console.WriteLine();
 }
+
+static double GetAverageValue(int[] numbers) =>
+    Convert.ToDouble(AddArrayElements(numbers) / numbers.Length);
