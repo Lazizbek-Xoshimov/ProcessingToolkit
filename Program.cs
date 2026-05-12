@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Quyidagi vazifalardan birini tanlang");
+﻿using System.Text;
+
+Console.WriteLine("Quyidagi vazifalardan birini tanlang");
 Console.WriteLine("1. Array elementlari yig'indisi");
 Console.WriteLine("2. Eng katta va eng kichik qiymat");
 Console.WriteLine("3. Juft va toq sonlar");
@@ -106,6 +108,14 @@ switch (option)
                 Console.WriteLine("Kiritgan qatoringiz palindrome.");
             else
                 Console.WriteLine("Kiritgan qatoringiz palindrome emas.");
+            break;
+        }
+    case "8":
+        {
+            Console.WriteLine("5 ta so'z kiriting");
+            StringBuilder stringBuilderObject = CombineStrings();
+
+            Console.WriteLine($"Birlashishdan so'ng quyidagi gap hosil bo'ldi: {stringBuilderObject}");
             break;
         }
     default:
@@ -219,3 +229,19 @@ static int GetConsonantLettersCount(string userInput)
 
 static bool IsPalindrome(string userInput) => 
     userInput.Equals(GetOppositeString(userInput)) ? true : false;
+
+static StringBuilder CombineStrings()
+{
+    StringBuilder stringBuilderObject = new StringBuilder();
+
+    for (int i = 1; i <= 5; i++)
+    {
+        Console.Write($"{i}-so'zingiz: ");
+        string userInput = Console.ReadLine();
+
+        stringBuilderObject.Append(userInput + ", ");
+    }
+    Console.WriteLine();
+
+    return stringBuilderObject;
+}
