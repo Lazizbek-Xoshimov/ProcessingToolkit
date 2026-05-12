@@ -128,6 +128,22 @@ switch (option)
             Console.WriteLine($"Hosil bo'lgan gap qatori: {stringBuilderObject}");
             break;
         }
+    case "10":
+        {
+            string[] names = new string[5];
+
+            Console.WriteLine("5 ta ism kiriting");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write($"{i}-ism: ");
+                names[i] = Console.ReadLine();
+            }
+
+            StringBuilder stringBuilderObject = AddComma(names);
+
+            Console.WriteLine($"Vergul qo'shilgan natijadagi qator: {stringBuilderObject}");
+            break;
+        }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
         break;
@@ -265,6 +281,16 @@ static StringBuilder RemoveSpaces(string userInput)
         if (stringBuilderObject[i] == ' ')
             stringBuilderObject.Remove(i, 1);
     }
+
+    return stringBuilderObject;
+}
+
+static StringBuilder AddComma(string[] names)
+{
+    StringBuilder stringBuilderObject = new StringBuilder();
+
+    foreach(string name in names)
+        stringBuilderObject.AppendFormat("{0}, ", name);
 
     return stringBuilderObject;
 }
