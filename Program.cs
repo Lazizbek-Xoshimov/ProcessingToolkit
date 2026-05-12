@@ -118,6 +118,16 @@ switch (option)
             Console.WriteLine($"Birlashishdan so'ng quyidagi gap hosil bo'ldi: {stringBuilderObject}");
             break;
         }
+    case "9":
+        {
+            Console.Write("Space larni olib tashlamoqchi bo'lgan gapni kiriting: ");
+            string userInput = Console.ReadLine();
+
+            StringBuilder stringBuilderObject = RemoveSpaces(userInput);
+
+            Console.WriteLine($"Hosil bo'lgan gap qatori: {stringBuilderObject}");
+            break;
+        }
     default:
         Console.WriteLine("Noto'g'ri bo'lim raqamini kiritdingiz");
         break;
@@ -239,9 +249,22 @@ static StringBuilder CombineStrings()
         Console.Write($"{i}-so'zingiz: ");
         string userInput = Console.ReadLine();
 
-        stringBuilderObject.Append(userInput + ", ");
+        stringBuilderObject.AppendFormat("{0}, ", userInput);
     }
     Console.WriteLine();
+
+    return stringBuilderObject;
+}
+
+static StringBuilder RemoveSpaces(string userInput)
+{
+    StringBuilder stringBuilderObject = new StringBuilder(userInput);
+
+    for (int i = 0; i < stringBuilderObject.Length; i++)
+    {
+        if (stringBuilderObject[i] == ' ')
+            stringBuilderObject.Remove(i, 1);
+    }
 
     return stringBuilderObject;
 }
